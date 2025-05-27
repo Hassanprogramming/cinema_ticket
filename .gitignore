@@ -1,0 +1,12 @@
+# Virtual environments
+.venv/
+
+# Django stuff
+db.sqlite3
+media/
+staticfiles/
+static/
+
+# Local env variables
+.env
+.env.*

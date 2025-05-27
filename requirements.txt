@@ -1,0 +1,14 @@
+asgiref==3.8.1
+click==8.2.1
+h11==0.16.0
+Django>=4.2
+djangorestframework>=3.14
+djangorestframework-simplejwt>=5.2.2
+channels>=4.0.0
+asgiref>=3.6.0
+Pillow>=9.5.0
+psycopg2-binary==2.9.10
+sqlparse==0.5.3
+uvicorn==0.34.2
+django-jazzmin==3.0.1
+drf-spectacular==0.28.0

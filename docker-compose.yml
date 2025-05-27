@@ -1,0 +1,34 @@
+services:
+  db:
+    image: postgres:14
+    environment:
+      POSTGRES_DB: cinema
+      POSTGRES_USER: cinema_user
+      POSTGRES_PASSWORD: cinema_pass
+    volumes:
+      - /home/user/project/pgdata:/var/lib/postgresql/data  # bind mount
+    ports:
+      - "5434:5432"
+
+  web:
+    build: .
+    image: cinema-booking:latest
+    ports:
+      - "8000:8000"
+    environment:
+      PROJECT_DEBUG: "False"
+      DATABASE_URL: "postgres://cinema_user:cinema_pass@db:5432/cinema"
+    command: >
+      /bin/bash -c "
+      if [ \"$PROJECT_DEBUG\" = \"True\" ]; then
+        echo 'Running in DEBUG mode with reload';
+        uvicorn cinema_ticket.asgi:application --reload --host 0.0.0.0 --port 8000;
+      else
+        echo 'Running in PRODUCTION mode';
+        uvicorn cinema_ticket.asgi:application --host 0.0.0.0 --port 8000;
+      fi
+      "
+    depends_on:
+      - db
+    volumes:
+      - .:/app

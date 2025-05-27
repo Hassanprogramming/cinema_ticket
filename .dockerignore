@@ -1,0 +1,20 @@
+# Virtual environments
+.venv/
+
+# Git and Docker files
+.git
+.gitignore
+docker-compose.override.yml
+
+# Media and collected static
+/media/
+staticfiles/
+static/
+
+# Local environment files
+.env
+.env.*
+
+# Database dumps
+*.sqlite3
+*.db
