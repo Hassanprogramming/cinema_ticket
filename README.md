@@ -118,6 +118,7 @@ SIMPLE_JWT = {
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
+python manage.py collectstatic  ## for collecting the static files of the adminpanel
 python manage.py migrate
 PROJECT_DEBUG=True uvicorn cinema_ticket.asgi:application --reload --host 0.0.0.0 --port 8000
 ```
