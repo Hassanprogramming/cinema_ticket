@@ -63,7 +63,10 @@ docker compose up --build
 ```bash
 docker compose exec web python manage.py createsuperuser
 ```
-
+* for accessing the adminpanel with the username and password created for superuser
+      
+      http://localhost:8000/admin/ 
+     
 ---
 
 ## Authentication
@@ -181,3 +184,4 @@ media/
 * The interactive Redoc UI is available at:
         
       http://localhost:8000/api/schema/redoc/
+
