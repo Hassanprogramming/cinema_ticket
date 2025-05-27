@@ -77,7 +77,6 @@ class SeatViewSet(viewsets.ReadOnlyModelViewSet):
 
     def get_serializer_context(self):
         context = super().get_serializer_context()
-
         movie_id = self.request.query_params.get('movie')
         if movie_id:
             try:
